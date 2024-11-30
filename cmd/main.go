@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/thakurnishu/golang-calculator-api/middleware"
 )
@@ -91,7 +92,8 @@ func addition(w http.ResponseWriter,r *http.Request) {
         return
     }
     result := reqNumbers.Num1 + reqNumbers.Num2
-    response := map[string]float64{"result": result}
+    f, err := strconv.ParseFloat(fmt.Sprintf("%.2f", result), 64) 
+    response := map[string]float64{"result": f}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
@@ -104,7 +106,9 @@ func subtract(w http.ResponseWriter,r *http.Request) {
         return
     }
     result := reqNumbers.Num1 - reqNumbers.Num2
-    response := map[string]float64{"result": result}
+
+    f, err := strconv.ParseFloat(fmt.Sprintf("%.2f", result), 64) 
+    response := map[string]float64{"result": f}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
@@ -117,7 +121,9 @@ func multiply(w http.ResponseWriter,r *http.Request) {
         return
     }
     result := reqNumbers.Num1 * reqNumbers.Num2
-    response := map[string]float64{"result": result}
+
+    f, err := strconv.ParseFloat(fmt.Sprintf("%.2f", result), 64) 
+    response := map[string]float64{"result": f}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
@@ -134,7 +140,9 @@ func divide(w http.ResponseWriter,r *http.Request) {
         return
     }
     result := reqNumbers.Num1 / reqNumbers.Num2
-    response := map[string]float64{"result": result}
+
+    f, err := strconv.ParseFloat(fmt.Sprintf("%.2f", result), 64) 
+    response := map[string]float64{"result": f}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
@@ -152,7 +160,9 @@ func sum(w http.ResponseWriter,r *http.Request) {
     for _, num := range numbers.Nums {
         result += num
     }
-    response := map[string]float64{"result": result}
+
+    f, err := strconv.ParseFloat(fmt.Sprintf("%.2f", result), 64) 
+    response := map[string]float64{"result": f}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
