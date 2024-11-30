@@ -1,2 +1,0 @@
-export LISTEN_ADDR="3000"
-export API_URL="localhost"
