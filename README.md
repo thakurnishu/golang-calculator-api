@@ -8,14 +8,14 @@ This API allows users to perform basic arithmetic operations like addition, subt
 
 ### Endpoints
 
-- 1. Add two numbers
-    **Endpoint:** `POST /add`  
-    **Summary:** Adds two numbers.  
-    **Request Body:**
-    ```json
-    {
+- Add two numbers
+  **Endpoint:** `POST /add`  
+  **Summary:** Adds two numbers.  
+  **Request Body:**
+  ```json
+  {
     "num1": 10,
     "num2": 5
-    }
-    ```
+  }
+  ```
 
